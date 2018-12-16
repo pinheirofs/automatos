@@ -10,9 +10,7 @@ Window {
     title: qsTr("Robotic Arm Simulator")
 
     Column {
-        id: column
-
-        spacing: 10
+        id: columni
 
         anchors.rightMargin: 10
         anchors.leftMargin: 10
@@ -20,11 +18,29 @@ Window {
         anchors.topMargin: 10
         anchors.fill: parent
 
-        Text {
-            id: wirstText
-            width: 110
-            text: qsTr("Wrist")
-            font.pixelSize: 12
+        Row {
+            id: row
+            anchors.left: parent.left
+            anchors.leftMargin: 0
+            anchors.right: parent.right
+            anchors.rightMargin: 0
+
+            Text {
+                id: wirstText
+
+                width: parent.width / 2
+
+                text: qsTr("Wrist")
+             }
+
+            Text {
+                id: wirstValueText
+
+                width: parent.width / 2
+
+                text: wristSlider.value
+                horizontalAlignment: Text.AlignRight
+            }
         }
 
         Slider {
@@ -38,10 +54,7 @@ Window {
 
         Text {
             id: elbowText
-            height: 20
-            width: 110
             text: qsTr("Elbow")
-            font.pixelSize: 12
         }
 
         Slider {
@@ -55,10 +68,7 @@ Window {
 
         Text {
             id: shoulderText
-            height: 20
-            width: 110
             text: qsTr("Shoulder")
-            font.pixelSize: 12
         }
 
         Slider {
@@ -73,10 +83,7 @@ Window {
 
         Text {
             id: waistText
-            height: 20
-            width: 110
             text: qsTr("Waist")
-            font.pixelSize: 12
         }
 
         Slider {
