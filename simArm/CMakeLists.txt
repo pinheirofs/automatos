@@ -2,6 +2,8 @@ cmake_minimum_required(VERSION 3.1)
 
 project(simArm LANGUAGES CXX)
 
+set(CMAKE_CXX_FLAGS "-D__STRICT_ANSI__")
+
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
 set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTORCC ON)
