@@ -2,15 +2,17 @@ import QtQuick 2.9
 import QtQuick.Window 2.2
 import QtQuick.Controls 2.4
 
+import simarm.Actuator 1.0
+
 Window {
     visible: true
     width: 240
     height: 480
     color: "#ffffff"
-    title: qsTr("Robotic Arm Simulator")
+    title: qsTr("Arm Simulator")
 
     Column {
-        id: columni
+        id: column
 
         anchors.rightMargin: 10
         anchors.leftMargin: 10
@@ -39,13 +41,22 @@ Window {
             }
         }
 
+        Actuator {
+            id: wirstActuator
+        }
+
         Slider {
             id: wristSlider
+            stepSize: 0.01
+            to: 90
+            from: -90
             anchors.right: parent.right
             anchors.rightMargin: 0
             anchors.left: parent.left
             anchors.leftMargin: 0
-            value: 0.5
+            value: 0
+
+            onValueChanged: waistActuator.commandValue = value
         }
 
         Row {
@@ -69,13 +80,22 @@ Window {
             }
         }
 
+        Actuator {
+            id: elbowActuator
+        }
+
         Slider {
             id: elbowSlider
+            stepSize: 0.01
+            to: 90
+            from: -90
             anchors.right: parent.right
             anchors.rightMargin: 0
             anchors.left: parent.left
             anchors.leftMargin: 0
-            value: 0.5
+            value: 0
+
+            onValueChanged: elbowActuator.commandValue = value
         }
 
         Row {
@@ -99,14 +119,22 @@ Window {
             }
         }
 
+        Actuator {
+            id: shoulderActuator
+        }
+
         Slider {
             id: shoulderSlider
-            y: 80
+            stepSize: 0.01
+            to: 90
+            from: -90
             anchors.right: parent.right
             anchors.rightMargin: 0
             anchors.left: parent.left
             anchors.leftMargin: 0
-            value: 0.5
+            value: 0
+
+            onValueChanged: shoulderActuator.commandValue = value
         }
 
         Row {
@@ -130,14 +158,22 @@ Window {
             }
         }
 
+        Actuator {
+            id: waistActuator
+        }
+
         Slider {
             id: waistSlider
-            y: 100
+            stepSize: 0.01
+            to: 90
+            from: -90
             anchors.right: parent.right
-            anchors.rightMargin: 2
+            anchors.rightMargin: 0
             anchors.left: parent.left
             anchors.leftMargin: 0
-            value: 0.5
+            value: 0
+
+            onValueChanged: waistActuator.commandValue = value
         }
     }
 }
